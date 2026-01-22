@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>🎉 Happy Birthday 🎂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
+body{
+  height:100vh;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  color:white;
+  text-align:center
+}
+h1{font-size:3rem;animation:glow 2s infinite alternate}
+p{font-size:1.2rem;margin-top:10px}
+button{
+  margin-top:20px;
+  padding:12px 26px;
+  font-size:1rem;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  background:white;
+  color:#ff5f7e;
+  transition:.3s
+}
+button:hover{transform:scale(1.1)}
+@keyframes glow{
+  from{text-shadow:0 0 10px #fff}
+  to{text-shadow:0 0 25px #ffeb3b}
+}
+
+/* Confetti */
+.confetti{
+  position:fixed;
+  width:8px;
+  height:8px;
+  top:-10px;
+  animation:fall linear infinite
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg)}
+}
+
+/* Firework particle */
+.firework{
+  position:fixed;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  animation:explode 1s ease-out forwards
+}
+@keyframes explode{
+  to{
+    transform:translate(var(--x),var(--y));
+    opacity:0
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div>
+  <h1>🎂 Chúc Mừng Sinh Nhật 🎉</h1>
+  <p>Chúc My luôn vui vẻ và hạnh phúc 💖</p>
+  <button onclick="celebrate()">🎆 Bấm để nổ pháo hoa</button>
+</div>
+
+<audio id="music" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<script>
+// CONFETTI
+function confettiRain(){
+  const c=document.createElement("div")
+  c.className="confetti"
+  c.style.left=Math.random()*innerWidth+"px"
+  c.style.animationDuration=(Math.random()*3+2)+"s"
+  c.style.background=`hsl(${Math.random()*360},100%,50%)`
+  document.body.appendChild(c)
+  setTimeout(()=>c.remove(),5000)
+}
+setInterval(confettiRain,150)
+
+// FIREWORK
+function firework(x,y){
+  for(let i=0;i<25;i++){
+    const p=document.createElement("div")
+    p.className="firework"
+    p.style.left=x+"px"
+    p.style.top=y+"px"
+    p.style.background=`hsl(${Math.random()*360},100%,50%)`
+    p.style.setProperty("--x",(Math.random()*200-100)+"px")
+    p.style.setProperty("--y",(Math.random()*200-100)+"px")
+    document.body.appendChild(p)
+    setTimeout(()=>p.remove(),1000)
+  }
+}
+
+// BUTTON EVENT
+function celebrate(){
+  document.getElementById("music").play()
+
+  for(let i=0;i<5;i++){
+    setTimeout(()=>{
+      firework(
+        Math.random()*innerWidth,
+        Math.random()*innerHeight*0.6
+      )
+    },i*300)
+  }
+}
+</script>
+
+</body>
+</html>
