@@ -68,14 +68,15 @@ button:hover{transform:scale(1.1)}
 <body>
 
 <div>
-  <h1>🎂 Chúc Mừng Sinh Nhật 🎉</h1>
+  <h1> Chúc Mừng Sinh Nhật </h1>
   <p>Chúc My luôn vui vẻ và hạnh phúc 💖</p>
-  <button onclick="celebrate()">🎆 Bấm để nổ pháo hoa</button>
+  <button onclick="celebrate()">🎆 Bấm để nổ :)</button>
 </div>
 
-<audio id="music" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+<audio id="music">
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_6e7f2cfa33.mp3" type="audio/mpeg">
 </audio>
+
 
 <script>
 // CONFETTI
@@ -92,7 +93,7 @@ setInterval(confettiRain,150)
 
 // FIREWORK
 function firework(x,y){
-  for(let i=0;i<25;i++){
+  for(let i=0;i<60;i++){
     const p=document.createElement("div")
     p.className="firework"
     p.style.left=x+"px"
