@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>🎉 Happy Birthday 🎂</title>
+<title>Hello</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -70,7 +70,7 @@ button:hover{transform:scale(1.1)}
 <div>
   <h1> Chúc Mừng Sinh Nhật </h1>
   <p>Chúc My luôn vui vẻ và hạnh phúc 💖</p>
-  <button onclick="celebrate()">🎆 Bấm để nổ :)</button>
+  <button onclick="celebrate()"> Bấm để nổ (o゜▽゜)o☆</button>
 </div>
 
 <audio id="music">
@@ -93,14 +93,15 @@ setInterval(confettiRain,150)
 
 // FIREWORK
 function firework(x,y){
-  for(let i=0;i<60;i++){
+  for(let i=0;i<70;i++){
     const p=document.createElement("div")
     p.className="firework"
     p.style.left=x+"px"
     p.style.top=y+"px"
     p.style.background=`hsl(${Math.random()*360},100%,50%)`
-    p.style.setProperty("--x",(Math.random()*200-100)+"px")
-    p.style.setProperty("--y",(Math.random()*200-100)+"px")
+    p.style.setProperty("--x",(Math.random()*400-200)+"px")
+p.style.setProperty("--y",(Math.random()*400-200)+"px")
+
     document.body.appendChild(p)
     setTimeout(()=>p.remove(),1000)
   }
